@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayman Hazim - Full Stack Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom animations */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        @keyframes glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(99, 102, 241, 0.6);
+            }
+        }
+
+        .float {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-950 text-white font-sans">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold gradient-text">AH</a>
+            <div class="hidden md:flex gap-8">
+                <a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a>
+                <a href="#skills" class="text-gray-400 hover:text-white transition-colors">Skills</a>
+                <a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a>
+                <a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="#contact"
+                    class="hidden sm:block px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors text-sm font-medium">
+                    Hire Me
+                </a>
+                <!-- Mobile menu button -->
+                <button id="menu-btn" class="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5">
+                    <span class="w-6 h-0.5 bg-white transition-all" id="line1"></span>
+                    <span class="w-6 h-0.5 bg-white transition-all" id="line2"></span>
+                    <span class="w-6 h-0.5 bg-white transition-all" id="line3"></span>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/10">
+            <div class="px-4 py-4 space-y-3">
+                <a href="#about" class="block text-gray-400 hover:text-white transition-colors py-2">About</a>
+                <a href="#skills" class="block text-gray-400 hover:text-white transition-colors py-2">Skills</a>
+                <a href="#projects" class="block text-gray-400 hover:text-white transition-colors py-2">Projects</a>
+                <a href="#contact" class="block text-gray-400 hover:text-white transition-colors py-2">Contact</a>
+                <a href="#contact"
+                    class="block px-4 py-2 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors text-sm font-medium text-center mt-4">
+                    Hire Me
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Background gradient orbs -->
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-600/30 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-600/30 rounded-full blur-3xl"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center relative z-10">
+            <div class="float mb-6 sm:mb-8">
+                <div
+                    class="w-36 h-36 sm:w-44 sm:h-44 md:w-52 md:h-52 mx-auto rounded-full bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-1.5 glow shadow-2xl shadow-indigo-500/25">
+                    <img src="images/profile_modern.png" alt="Ayman Hazim"
+                        class="w-full h-full rounded-full object-cover object-top border-4 border-gray-950">
+                </div>
+            </div>
+            <p class="text-indigo-400 font-medium mb-2 sm:mb-4 text-sm sm:text-base">Hello, I'm</p>
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6">
+                <span class="gradient-text">Ayman Hazim</span>
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-400 mb-6 sm:mb-8 max-w-2xl mx-auto px-2">
+                Full Stack Developer building modern web applications with React, Vue.js, TypeScript & Golang
+            </p>
+            <div class="flex gap-3 sm:gap-4 justify-center flex-wrap">
+                <a href="#projects"
+                    class="px-6 sm:px-8 py-2.5 sm:py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-all hover:scale-105 font-medium text-sm sm:text-base">
+                    View My Work
+                </a>
+                <a href="#contact"
+                    class="px-6 sm:px-8 py-2.5 sm:py-3 border border-gray-700 hover:border-indigo-500 rounded-lg transition-all hover:scale-105 font-medium text-sm sm:text-base">
+                    Get In Touch
+                </a>
+                <a href="Ayman_Hazim_Full_Stack.pdf" download="Ayman_Hazim_CV.pdf"
+                    class="px-6 sm:px-8 py-2.5 sm:py-3 bg-emerald-600 hover:bg-emerald-700 rounded-lg transition-all hover:scale-105 font-medium text-sm sm:text-base flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                        </path>
+                    </svg>
+                    Download CV
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2">
+            <div class="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center pt-2">
+                <div class="w-1 h-3 bg-indigo-500 rounded-full animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 sm:py-24 md:py-32">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+                <div>
+                    <p class="text-indigo-400 font-medium mb-2 text-sm sm:text-base">About Me</p>
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">Building complete products from
+                        UI to backend</h2>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        Full-Stack Developer with a strong foundation in delivering complete product features
+                        from UI/UX to backend APIs and database layer. Specialized in RESTful API design,
+                        responsive frontend development, and scalable system architecture.
+                    </p>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        Proven track record of shipping production applications with emphasis on code quality,
+                        performance, and user experience. I share my knowledge through my YouTube channel
+                        and love exploring system design and microservices architecture.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="text-center">
+                            <p class="text-3xl font-bold gradient-text">10+</p>
+                            <p class="text-gray-500 text-sm">Projects Shipped</p>
+                        </div>
+                        <div class="text-center">
+                            <p class="text-3xl font-bold gradient-text">2</p>
+                            <p class="text-gray-500 text-sm">Companies</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="glass rounded-2xl p-8">
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-indigo-600/20 rounded-lg flex items-center justify-center">
+                                    <span class="text-2xl">🎓</span>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Computer Engineering</p>
+                                    <p class="text-gray-500 text-sm">University of Technology, 2021-2025</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center">
+                                    <span class="text-2xl">💼</span>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Full-Stack Developer</p>
+                                    <p class="text-gray-500 text-sm">Algo-nest & Siroz</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-pink-600/20 rounded-lg flex items-center justify-center">
+                                    <span class="text-2xl">📍</span>
+                                </div>
+                                <div>
+                                    <p class="font-medium">Baghdad, Iraq</p>
+                                    <p class="text-gray-500 text-sm">Open to Remote</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 sm:py-24 md:py-32 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-indigo-950/20 to-transparent"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center mb-10 sm:mb-16">
+                <p class="text-indigo-400 font-medium mb-2 text-sm sm:text-base">My Skills</p>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold">Technologies I Work With</h2>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+                <!-- Frontend -->
+                <div class="glass rounded-xl p-6 card-hover text-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"
+                        class="w-12 h-12 mx-auto mb-3">
+                    <p class="font-medium">React</p>
+                    <p class="text-gray-500 text-sm">Frontend</p>
+                </div>
+                <div class="glass rounded-xl p-6 card-hover text-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" alt="Vue.js"
+                        class="w-12 h-12 mx-auto mb-3">
+                    <p class="font-medium">Vue.js</p>
+                    <p class="text-gray-500 text-sm">Frontend</p>
+                </div>
+                <div class="glass rounded-xl p-6 card-hover text-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                        alt="TypeScript" class="w-12 h-12 mx-auto mb-3">
+                    <p class="font-medium">TypeScript</p>
+                    <p class="text-gray-500 text-sm">Language</p>
+                </div>
+                <div class="glass rounded-xl p-6 card-hover text-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original-wordmark.svg"
+                        alt="Golang" class="w-12 h-12 mx-auto mb-3">
+                    <p class="font-medium">Golang</p>
+                    <p class="text-gray-500 text-sm">Backend</p>
+                </div>
+                <!-- Backend -->
+                <div class="glass rounded-xl p-6 card-hover text-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+                        alt="Node.js" class="w-12 h-12 mx-auto mb-3">
+                    <p class="font-medium">Node.js</p>
+                    <p class="text-gray-500 text-sm">Backend</p>
+                </div>
+                <div class="glass rounded-xl p-6 card-hover text-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"
+                        alt="PostgreSQL" class="w-12 h-12 mx-auto mb-3">
+                    <p class="font-medium">PostgreSQL</p>
+                    <p class="text-gray-500 text-sm">Database</p>
+                </div>
+                <div class="glass rounded-xl p-6 card-hover text-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg"
+                        alt="Docker" class="w-12 h-12 mx-auto mb-3">
+                    <p class="font-medium">Docker</p>
+                    <p class="text-gray-500 text-sm">DevOps</p>
+                </div>
+                <div class="glass rounded-xl p-6 card-hover text-center">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux"
+                        class="w-12 h-12 mx-auto mb-3">
+                    <p class="font-medium">Linux</p>
+                    <p class="text-gray-500 text-sm">Server</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 sm:py-24 md:py-32">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            <div class="text-center mb-10 sm:mb-16">
+                <p class="text-indigo-400 font-medium mb-2 text-sm sm:text-base">My Work</p>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold">Featured Projects</h2>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <!-- Project 1 - Auction Platform -->
+                <div class="glass rounded-2xl overflow-hidden card-hover group">
+                    <div class="h-48 bg-gradient-to-br from-indigo-600 to-purple-600 relative overflow-hidden cursor-pointer"
+                        onclick="openLightbox(this.querySelector('img').src)">
+                        <img src="images/auction_real.png" alt="Auction Dashboard"
+                            class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                            onerror="this.src='https://placehold.co/600x400/4f46e5/white?text=Auction+Platform'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-3 left-3 flex items-center gap-2 text-white/80 text-xs">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                            </svg>
+                            Click to preview
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Auction Platform</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Complete auction web app with real-time bidding system, countdown timers, live updates, and
+                            admin dashboard. Secure authentication with role-based authorization.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="px-3 py-1 bg-indigo-600/20 text-indigo-400 rounded-full text-xs">Full-Stack</span>
+                            <span
+                                class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-xs">Real-time</span>
+                            <span class="px-3 py-1 bg-pink-600/20 text-pink-400 rounded-full text-xs">Auth</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://github.com/Mr1Compiler/AuctionApp" target="_blank"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 - SaaS Billing -->
+                <div class="glass rounded-2xl overflow-hidden card-hover group">
+                    <div class="h-48 bg-gradient-to-br from-emerald-600 to-teal-600 relative overflow-hidden cursor-pointer"
+                        onclick="openLightbox(this.querySelector('img').src)">
+                        <img src="images/billing.png" alt="Billing Dashboard"
+                            class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                            onerror="this.src='https://placehold.co/600x400/059669/white?text=Billing+Platform'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-3 left-3 flex items-center gap-2 text-white/80 text-xs">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                            </svg>
+                            Click to preview
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">SaaS Billing Platform</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Multi-tenant subscription management system with secure RESTful APIs, JWT authentication,
+                            PostgreSQL with multi-tenant isolation and Docker deployment.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span
+                                class="px-3 py-1 bg-emerald-600/20 text-emerald-400 rounded-full text-xs">Multi-tenant</span>
+                            <span class="px-3 py-1 bg-teal-600/20 text-teal-400 rounded-full text-xs">PostgreSQL</span>
+                            <span class="px-3 py-1 bg-cyan-600/20 text-cyan-400 rounded-full text-xs">Docker</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <a href="https://github.com/Mr1Compiler/Billing_System" target="_blank"
+                                class="text-gray-400 hover:text-white transition-colors text-sm">GitHub →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 - Admin Dashboard -->
+                <div class="glass rounded-2xl overflow-hidden card-hover group">
+                    <div class="h-48 bg-gradient-to-br from-violet-600 to-purple-600 relative overflow-hidden cursor-pointer"
+                        onclick="openLightbox(this.querySelector('img').src)">
+                        <img src="images/admin.png" alt="Admin Dashboard"
+                            class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                            onerror="this.src='https://placehold.co/600x400/7c3aed/white?text=Admin+Dashboard'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-3 left-3 flex items-center gap-2 text-white/80 text-xs">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                            </svg>
+                            Click to preview
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Admin Dashboard</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Modern admin panel with analytics, user management, real-time notifications, and responsive
+                            design. Built with React and integrated REST APIs.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-violet-600/20 text-violet-400 rounded-full text-xs">React</span>
+                            <span
+                                class="px-3 py-1 bg-purple-600/20 text-purple-400 rounded-full text-xs">Dashboard</span>
+                            <span
+                                class="px-3 py-1 bg-fuchsia-600/20 text-fuchsia-400 rounded-full text-xs">Analytics</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-gray-500 text-sm italic">NDA Protected • Details on request</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 - E-commerce -->
+                <div class="glass rounded-2xl overflow-hidden card-hover group">
+                    <div class="h-48 bg-gradient-to-br from-orange-600 to-red-600 relative overflow-hidden cursor-pointer"
+                        onclick="openLightbox(this.querySelector('img').src)">
+                        <img src="images/ecommerce.png" alt="E-commerce Platform"
+                            class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                            onerror="this.src='https://placehold.co/600x400/ea580c/white?text=E-commerce'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-3 left-3 flex items-center gap-2 text-white/80 text-xs">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                            </svg>
+                            Click to preview
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">E-commerce Platform</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Full-featured online store with product catalog, shopping cart, checkout flow, and payment
+                            integration. Built with Vue.js and Node.js backend.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-orange-600/20 text-orange-400 rounded-full text-xs">Vue.js</span>
+                            <span class="px-3 py-1 bg-red-600/20 text-red-400 rounded-full text-xs">Node.js</span>
+                            <span
+                                class="px-3 py-1 bg-yellow-600/20 text-yellow-400 rounded-full text-xs">Payments</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-gray-500 text-sm italic">NDA Protected • Details on request</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 - CRM System -->
+                <div class="glass rounded-2xl overflow-hidden card-hover group">
+                    <div class="h-48 bg-gradient-to-br from-cyan-600 to-blue-600 relative overflow-hidden cursor-pointer"
+                        onclick="openLightbox(this.querySelector('img').src)">
+                        <img src="images/crm_populated.png" alt="CRM Dashboard"
+                            class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                            onerror="this.src='https://placehold.co/600x400/0891b2/white?text=CRM+System'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-3 left-3 flex items-center gap-2 text-white/80 text-xs">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                            </svg>
+                            Click to preview
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">CRM System</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Customer relationship management with lead tracking, pipeline visualization, contact
+                            management, and reporting features. Golang microservices architecture.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-cyan-600/20 text-cyan-400 rounded-full text-xs">Golang</span>
+                            <span
+                                class="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-xs">Microservices</span>
+                            <span class="px-3 py-1 bg-sky-600/20 text-sky-400 rounded-full text-xs">CRM</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-gray-500 text-sm italic">NDA Protected • Details on request</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 - Enterprise Apps -->
+                <div class="glass rounded-2xl overflow-hidden card-hover group">
+                    <div class="h-48 bg-gradient-to-br from-rose-600 to-pink-600 relative overflow-hidden cursor-pointer"
+                        onclick="openLightbox(this.querySelector('img').src)">
+                        <img src="images/enterprise.png" alt="Enterprise App"
+                            class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                            onerror="this.src='https://placehold.co/600x400/e11d48/white?text=Enterprise+App'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-950/90 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-3 left-3 flex items-center gap-2 text-white/80 text-xs">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                            </svg>
+                            Click to preview
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Enterprise Applications</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            Production web applications at Algo-nest & Siroz using React, Vue.js, Golang microservices,
+                            and various backend technologies. Shipped to real users.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-rose-600/20 text-rose-400 rounded-full text-xs">React</span>
+                            <span class="px-3 py-1 bg-pink-600/20 text-pink-400 rounded-full text-xs">Vue.js</span>
+                            <span
+                                class="px-3 py-1 bg-fuchsia-600/20 text-fuchsia-400 rounded-full text-xs">Golang</span>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="text-gray-500 text-sm italic">NDA Protected • Details on request</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lightbox Modal -->
+            <div id="lightbox" class="fixed inset-0 bg-black/90 z-50 hidden items-center justify-center p-4"
+                onclick="closeLightbox()">
+                <button class="absolute top-4 right-4 text-white/80 hover:text-white text-4xl">&times;</button>
+                <img id="lightbox-img" src="" alt="Preview" class="max-w-full max-h-[90vh] rounded-lg shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 sm:py-24 md:py-32 relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-indigo-950/30 to-transparent"></div>
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+            <div class="text-center mb-10 sm:mb-16">
+                <p class="text-indigo-400 font-medium mb-2 text-sm sm:text-base">Get In Touch</p>
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4">Let's Work Together</h2>
+                <p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
+                    I'm currently looking for new opportunities. Whether you have a question or just want to say hi,
+                    I'll do my best to get back to you!
+                </p>
+            </div>
+
+            <div class="glass rounded-2xl p-6 sm:p-8 md:p-12">
+                <div class="grid sm:grid-cols-2 gap-4 sm:gap-8 mb-8">
+                    <a href="mailto:eng.ayman.asal@gmail.com"
+                        class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl hover:bg-white/5 transition-colors">
+                        <div
+                            class="w-10 h-10 sm:w-12 sm:h-12 bg-indigo-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span class="text-xl sm:text-2xl">📧</span>
+                        </div>
+                        <div class="min-w-0">
+                            <p class="text-gray-500 text-xs sm:text-sm">Email</p>
+                            <p class="font-medium text-sm sm:text-base truncate">eng.ayman.asal@gmail.com</p>
+                        </div>
+                    </a>
+                    <a href="tel:+9647728985981"
+                        class="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 rounded-xl hover:bg-white/5 transition-colors">
+                        <div
+                            class="w-10 h-10 sm:w-12 sm:h-12 bg-purple-600/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <span class="text-xl sm:text-2xl">📱</span>
+                        </div>
+                        <div class="min-w-0">
+                            <p class="text-gray-500 text-xs sm:text-sm">Phone</p>
+                            <p class="font-medium text-sm sm:text-base">+964 772 898 5981</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="flex justify-center gap-6">
+                    <a href="https://github.com/Mr1Compiler" target="_blank"
+                        class="w-12 h-12 glass rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/ayman-hazim-a8219b327" target="_blank"
+                        class="w-12 h-12 glass rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                    <a href="https://youtube.com/@Mr1Compiler" target="_blank"
+                        class="w-12 h-12 glass rounded-lg flex items-center justify-center hover:bg-white/10 transition-colors">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+            <p class="text-gray-500 text-sm sm:text-base">© 2025 Ayman Hazim. Built with passion and lots of coffee ☕
+            </p>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLinks = mobileMenu.querySelectorAll('a');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking a link
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Lightbox functions
+        function openLightbox(imgSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = imgSrc;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            document.body.style.overflow = '';
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+    </script>
+
+</body>
+
+</html>
